@@ -12,7 +12,6 @@ require 'rack/best_standards_support'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/array'
 require 'active_support/core_ext/hash'
-require 'active_support/json'
 
 libraries = Dir[File.expand_path('../lib/**/*.rb', __FILE__)]
 libraries.each do |path_name|
