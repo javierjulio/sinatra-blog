@@ -20,10 +20,6 @@ gem 'coffee-script'
 gem 'sass'
 gem 'sprockets-sass'
 gem 'sprockets-helpers'
-#gem 'stylus'
-#gem 'stylus-source', '~> 0.42.0'
-# gem 'eco'
-# gem 'json', '~> 1.8.1'
 
 group :production do
   gem 'rails_12factor' # https://devcenter.heroku.com/articles/rails4#logging-and-assets

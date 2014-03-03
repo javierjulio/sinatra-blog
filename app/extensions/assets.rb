@@ -1,5 +1,4 @@
 require 'sprockets'
-#require 'stylus/sprockets'
 require 'sprockets-sass'
 require 'sprockets-helpers'
 require 'sass'
@@ -18,7 +17,6 @@ module Blog
       end
 
       def registered(app)
-        # Assets
         app.set :assets, assets = Sprockets::Environment.new(app.settings.root)
 
         assets.append_path('app/assets/javascripts')
@@ -32,8 +30,6 @@ module Blog
           config.prefix      = 'app/assets'
           config.digest      = false
         end
-
-        #Stylus.setup(assets)
 
         app.set :asset_host, ''
 
