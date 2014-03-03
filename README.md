@@ -28,4 +28,4 @@ Good examples of the following:
     heroku addons:add memcachier:dev
     heroku addons:add newrelic:stark
 
-    git push heroku master
+    bundle exec rake deploy:production
