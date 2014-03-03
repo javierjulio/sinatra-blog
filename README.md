@@ -12,22 +12,20 @@ Good examples of the following:
 * Sprockets and asset management
 * Markdown and Erb
 * Unicorn and Heroku
-* Stylus
+* Sass and CoffeeScript
 
-Demo here http://sinatra-example-blog.herokuapp.com
+## Installation
 
-## Running
-
-    bundle install
-    thin start
-
-## Heroku 123
-
-    git clone git@github.com:maccman/sinatra-blog.git
+    git clone https://github.com/javierjulio/sinatra-blog.git
     cd sinatra-blog
+    bundle install
+    foreman start
+
+### Deploy to Heroku
 
     heroku create myblog
     heroku labs:enable user-env-compile
     heroku addons:add memcachier:dev
+    heroku addons:add newrelic:stark
 
     git push heroku master
