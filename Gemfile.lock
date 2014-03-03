@@ -60,7 +60,7 @@ GEM
     stylus (1.0.1)
       execjs
       stylus-source
-    stylus-source (0.40.3)
+    stylus-source (0.42.2)
     thread_safe (0.2.0)
       atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
@@ -95,7 +95,7 @@ DEPENDENCIES
   sinatra-contrib
   sprockets
   stylus
-  stylus-source (~> 0.40.0)
+  stylus-source (~> 0.42.0)
   uglifier
   unicorn
   yui-compressor
