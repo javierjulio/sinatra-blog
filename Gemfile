@@ -22,11 +22,6 @@ gem 'stylus-source', '~> 0.40.0'
 # gem 'json', '~> 1.8.1'
 gem 'sinatra-contrib'
 
-group :development do
-  gem 'thin'
-  gem 'rack-mini-profiler'
-end
-
 group :production do
   gem 'rails_12factor' # https://devcenter.heroku.com/articles/rails4#logging-and-assets
   gem 'memcachier'
