@@ -36,7 +36,7 @@ module Blog
       def self.cache
         if App.settings.production?
           @cache ||= Dalli::Client.new
-        elsif App.settings.development?
+        else
           @cache ||= ActiveSupport::Cache::MemoryStore.new
         end
       end
