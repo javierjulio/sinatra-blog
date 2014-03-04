@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/javierjulio/sinatra-blog.png?branch=master)](https://travis-ci.org/javierjulio/sinatra-blog)
+
 ## Sinatra Example Blog
 
 This is a good example of structuring a Sinatra app.
