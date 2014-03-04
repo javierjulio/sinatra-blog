@@ -21,6 +21,11 @@ gem 'sass'
 gem 'sprockets-sass'
 gem 'sprockets-helpers'
 
+group :test do
+  gem 'minitest'
+  gem 'rack-test'
+end
+
 group :production do
   gem 'rails_12factor' # https://devcenter.heroku.com/articles/rails4#logging-and-assets
   gem 'memcachier'
