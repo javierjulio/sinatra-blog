@@ -99,12 +99,8 @@ module Blog
         @draft
       end
 
-      def mtime
-        path.mtime
-      end
-
       def cache_key
-        [slug, mtime.to_i].join(':')
+        [slug, path.mtime.to_i].join(':')
       end
 
       def render

@@ -88,7 +88,7 @@ class AccessorsTest < MiniTest::Unit::TestCase
   def test_cache_key
     current_time = Time.now
 
-    @post.stub :mtime, current_time do
+    @post.path.stub :mtime, current_time do
       assert_equal @post.cache_key, "#{@post.slug}:#{current_time.to_i}"
     end
   end
