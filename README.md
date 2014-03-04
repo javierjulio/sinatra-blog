@@ -13,6 +13,7 @@ Good examples of the following:
 * Markdown and Erb
 * Unicorn and Heroku
 * Sass and CoffeeScript
+* Deploy task with auto tagging
 
 ## Installation
 
@@ -20,6 +21,10 @@ Good examples of the following:
     cd sinatra-blog
     bundle install
     foreman start
+
+### Tests
+
+    bundle exec rake test
 
 ### Deploy to Heroku
 
