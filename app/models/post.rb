@@ -59,14 +59,14 @@ module Blog
       def markdown
         @markdown ||= begin
           eruby = Erubis::EscapedEruby.new(content)
-          eruby.result(binding)
+          eruby.result(binding).strip
         end
       end
 
       def html
         @html ||= begin
           renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-          renderer.render(markdown)
+          renderer.render(markdown).strip
         end
       end
 
