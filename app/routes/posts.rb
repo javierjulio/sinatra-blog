@@ -5,10 +5,6 @@ module Blog
         error 404
       end
 
-      get '/apple-touch-icon*' do
-        404
-      end
-
       get '/feed', provides: 'application/atom+xml' do
         @posts = Post.all
         builder :feed
