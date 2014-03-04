@@ -101,12 +101,12 @@ module Blog
         path.mtime
       end
 
-      def key
+      def cache_key
         [slug, mtime.to_i].join(':')
       end
 
       def render
-        self.class.cache.fetch(key) do
+        self.class.cache.fetch(cache_key) do
           html
         end
       end
