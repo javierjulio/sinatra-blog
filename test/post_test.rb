@@ -43,7 +43,8 @@ end
 class AccessorsTest < MiniTest::Unit::TestCase
 
   def setup
-    @post = Blog::Models::Post.new(fixture_path('posts/my_first_post.md'))
+    @post_file = fixture_path('posts/my_first_post.md')
+    @post = Blog::Models::Post.new(@post_file)
   end
 
   def test_slug
@@ -70,6 +71,10 @@ class AccessorsTest < MiniTest::Unit::TestCase
     assert !@post.draft?
     @post.draft!
     assert @post.draft?
+  end
+
+  def test_content
+    assert_equal @post.content, File.read(@post_file)
   end
 
   def test_markdown
