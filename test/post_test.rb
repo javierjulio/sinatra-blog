@@ -2,11 +2,11 @@ require 'test_helper'
 
 class FindersTest < MiniTest::Unit::TestCase
 
-  def test_path_is_posts_directory_path
+  test 'Post.path is posts directory path' do
     assert_equal Pathname(app.settings.root) + 'posts', Post.path
   end
 
-  def test_all_loads_all_published_posts
+  test 'Post.all loads only published posts' do
     posts = Blog::Models::Post.all
 
     assert_equal posts.size, 2
@@ -15,26 +15,26 @@ class FindersTest < MiniTest::Unit::TestCase
     end
   end
 
-  def test_all_loads_published_posts_ordered_by_most_recent
+  test 'Post.all loads published posts ordered by most recent' do
     posts = Blog::Models::Post.all
     post_dates = posts.map { |p| p.date }
 
     assert_equal post_dates, [Date.parse('3rd March 2014'), Date.parse('3rd February 2013')]
   end
 
-  def test_find_finds_published_posts
+  test 'Post.find loads published post by key' do 
     post = Blog::Models::Post.find('my_first_post')
 
     assert_equal post.title, 'My First Post!'
   end
 
-  def test_find_finds_draft_post_too
+  test 'Post.find loads draft post by key' do
     post = Blog::Models::Post.find('a_draft_post')
 
     assert post.draft?
   end
 
-  def test_find_bang_raises_error
+  test 'Post.find! raises an error if post not found' do
     assert_raises(Blog::Models::NotFound) { Blog::Models::Post.find!('non_existing_post') }
   end
 
@@ -47,45 +47,45 @@ class AccessorsTest < MiniTest::Unit::TestCase
     @post = Blog::Models::Post.new(@post_file)
   end
 
-  def test_slug
+  test 'slug is dasherized post title' do
     assert_equal @post.slug, 'my-first-post'
   end
 
-  def test_title
+  test 'title' do
     assert_equal @post.title, 'My First Post!'
   end
 
-  def test_author
+  test 'author' do
     assert_equal @post.author, 'Javier Julio'
   end
 
-  def test_date
+  test 'date' do
     assert_equal @post.date, Date.parse('3rd March 2014')
   end
 
-  def test_post_is_not_a_draft
+  test 'post is not a draft' do
     assert !@post.draft?
   end
 
-  def test_draft_bang_sets_draft_flag
+  test 'draft! sets draft flag to true' do
     assert !@post.draft?
     @post.draft!
     assert @post.draft?
   end
 
-  def test_content
+  test 'content matches file contents' do
     assert_equal @post.content, File.read(@post_file)
   end
 
-  def test_markdown
+  test 'markdown' do
     assert_equal @post.markdown, 'This is a **published** post.'
   end
 
-  def test_html
+  test 'html' do
     assert_equal @post.html, '<p>This is a <strong>published</strong> post.</p>'
   end
 
-  def test_cache_key
+  test 'cache_key is based from post slug and file modified time' do
     current_time = Time.now
 
     @post.path.stub :mtime, current_time do
@@ -102,15 +102,15 @@ class EmptyPostContentTest < MiniTest::Unit::TestCase
     @post = Blog::Models::Post.new(@post_file)
   end
 
-  def test_content
+  test 'content matches file contents' do
     assert_equal @post.content, File.read(@post_file)
   end
 
-  def test_markdown
+  test 'markdown is an empty string' do
     assert_equal @post.markdown, ''
   end
 
-  def test_html
+  test 'html is an empty string' do
     assert_equal @post.html, ''
   end
 
