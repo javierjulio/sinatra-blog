@@ -63,6 +63,8 @@ module Blog
         end
       end
 
+      alias_method :setup, :markdown
+
       def html
         @html ||= begin
           renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
@@ -94,7 +96,7 @@ module Blog
       end
 
       def draft?
-        @draft# || parent_draft?
+        @draft
       end
 
       def mtime
@@ -110,14 +112,6 @@ module Blog
           html
         end
       end
-
-      alias_method :setup, :markdown
-
-      protected
-
-#       def parent_draft?
-#         path.parent.basename.to_s == 'drafts'
-#       end
     end
   end
 end
