@@ -10,12 +10,16 @@ class FindersTest < MiniTest::Unit::TestCase
     posts = Blog::Models::Post.all
 
     assert_equal posts.size, 2
-    assert_equal posts.first.title, 'My First Post!'
-    assert_equal posts.second.title, 'An Empty Post'
-
     posts.each do |post|
       assert !post.draft?
     end
+  end
+
+  def test_all_loads_published_posts_ordered_by_most_recent
+    posts = Blog::Models::Post.all
+    post_dates = posts.map { |p| p.date }
+
+    assert_equal post_dates, [Date.parse('3rd March 2014'), Date.parse('3rd February 2013')]
   end
 
   def test_find_finds_published_posts
