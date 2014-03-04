@@ -94,7 +94,7 @@ module Blog
       end
 
       def draft?
-        @draft || parent_draft?
+        @draft# || parent_draft?
       end
 
       def mtime
@@ -115,9 +115,9 @@ module Blog
 
       protected
 
-      def parent_draft?
-        path.parent.basename.to_s == 'drafts'
-      end
+#       def parent_draft?
+#         path.parent.basename.to_s == 'drafts'
+#       end
     end
   end
 end
