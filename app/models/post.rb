@@ -25,6 +25,10 @@ module Blog
         paths.first && self.new(paths.first)
       end
 
+      def self.find(slug)
+        self[slug]
+      end
+
       def self.find!(slug)
         self[slug] || raise(NotFound.new)
       end
