@@ -12,4 +12,9 @@ class RoutesTest < MiniTest::Unit::TestCase
     assert last_response.ok?
   end
 
+  def test_pagination
+    get '/page/1'
+    assert last_response.ok?
+  end
+
 end
