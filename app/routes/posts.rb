@@ -10,10 +10,8 @@ module Blog
         builder :feed
       end
 
-      get '/page/:number' do
-        number = Integer(params[:number])
-        @posts = Post.paginate(number)
-
+      get %r{/page/([\d]+)} do
+        @posts = Post.paginate(params[:number].to_i)
         erb :index
       end
 
