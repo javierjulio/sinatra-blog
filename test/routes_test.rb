@@ -2,17 +2,22 @@ require 'test_helper'
 
 class RoutesTest < MiniTest::Unit::TestCase
 
-  test 'index' do
+  test 'index page' do
     get '/'
     assert last_response.ok?
   end
 
-  test 'feed' do
+  test '/feed' do
     get '/feed'
     assert last_response.ok?
   end
 
-  test 'pagination' do
+  test '/:slug' do
+    get '/my-first-post'
+    assert last_response.ok?
+  end
+
+  test '/page/:number' do
     get '/page/1'
     assert last_response.ok?
   end
