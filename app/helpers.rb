@@ -29,7 +29,7 @@ module Blog
     end
 
     def paginate_next?(items, limit = 10)
-      items.length >= limit
+      Array(items).length >= limit
     end
 
     ::Date::DATE_FORMATS[:short_ordinal] = lambda { |date|
