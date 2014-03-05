@@ -74,4 +74,33 @@ class PaginationHelpersTest < MiniTest::Unit::TestCase
     end
   end
 
+  test 'paginate_next? returns true with items exceeding limit' do
+    items = Array(1..20)
+
+    assert @helper.paginate_next?(items)
+  end
+
+  test 'paginate_next? returns false with fewer items than limit' do
+    items = Array(1..5)
+
+    assert !@helper.paginate_next?(items)
+    assert !@helper.paginate_next?(nil)
+  end
+
+  test 'paginate_previous? returns true' do
+    @helper.stub :params, {number: 1} do
+      assert @helper.paginate_previous?
+    end
+  end
+
+  test 'paginate_previous? returns false' do
+    @helper.stub :params, {number: 0} do
+      assert !@helper.paginate_previous?
+    end
+
+    @helper.stub :params, {} do
+      assert !@helper.paginate_previous?
+    end
+  end
+
 end
