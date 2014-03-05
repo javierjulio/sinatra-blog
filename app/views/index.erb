@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <section class="post <%= post.slug %>">
+  <div class="post <%= post.slug %>">
     <header>
       <h2>
         <a href="/<%= post.slug %>"><%= post.title %></a>
@@ -23,11 +23,11 @@
     <div class="body">
       <%== post.render %>
     </div>
-  </section>
+  </div>
 <% end %>
 
 <% content_for :footer do %>
-  <section class="pagination">
+  <div class="pagination">
     <div class="wrap">
       <% if paginate_next?(@posts) || paginate_previous? %>
         <% if paginate_previous? %>
@@ -45,5 +45,5 @@
         <% end %>
       <% end %>
     </div>
-  </section>
+  </div>
 <% end %>

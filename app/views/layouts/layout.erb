@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title><%= title %></title>
 
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="<%= asset_path 'layout.css' %>">
 
   <link rel="alternate" type="application/atom+xml" href="/feed">
@@ -32,14 +32,16 @@
     </nav>
   </header>
 
-  <article class="main wrap">
-    <%== yield %>
-  </article>
+  <main role="main">
+    <div class="main wrap">
+      <%== yield %>
+    </div>
+  </main>
 
   <footer class="footer">
     <%== yield_content :footer %>
   </footer>
-  
+
   <script src="<%= asset_path 'layout.js' %>"></script>
 </body>
 </html>
