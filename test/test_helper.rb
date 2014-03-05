@@ -34,6 +34,10 @@ class MiniTest::Unit::TestCase
     Blog::App
   end
 
+  def fixture(path)
+    IO.read(fixture_path(path))
+  end
+
   def fixture_path(path)
     if path.match(FIXTURE_ROOT)
       path
