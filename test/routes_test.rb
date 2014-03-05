@@ -17,9 +17,19 @@ class RoutesTest < MiniTest::Unit::TestCase
     assert last_response.ok?
   end
 
+  test 'invalid /:slug returns not found status' do
+    get '/non-existing-post'
+    assert last_response.not_found?
+  end
+
   test '/page/:number' do
     get '/page/1'
     assert last_response.ok?
+  end
+
+  test 'invalid /page/:number returns not found status' do
+    get '/page/test'
+    assert last_response.not_found?
   end
 
 end
