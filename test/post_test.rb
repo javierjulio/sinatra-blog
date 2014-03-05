@@ -85,12 +85,19 @@ class AccessorsTest < MiniTest::Unit::TestCase
     assert_equal @post.html, '<p>This is a <strong>published</strong> post.</p>'
   end
 
-  test 'cache_key is based from post slug and file modified time' do
+  test 'cache_key uses slug and file modified time' do
     current_time = Time.now
 
     @post.path.stub :mtime, current_time do
       assert_equal @post.cache_key, "#{@post.slug}:#{current_time.to_i}"
     end
+  end
+
+  test 'render returns cached html' do
+    html = '<p>This is a <strong>published</strong> post.</p>'
+    assert_equal @post.render, html
+    @post.instance_variable_set(:@html, '<p>Test.</p>')
+    assert_equal @post.render, html
   end
 
 end
