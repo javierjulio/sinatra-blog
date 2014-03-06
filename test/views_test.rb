@@ -23,13 +23,14 @@ class ViewsTest < MiniTest::Unit::TestCase
     assert_match /#{post.html}/i, last_response.body
   end
 
-  test 'draft post shows draft notice' do
+  test 'post shows draft notice if draft' do
     get '/a-draft-post'
 
     assert_match /This is an unpublished draft/i, last_response.body
   end
 
   test 'feed' do
+    # TODO: when running test in Travis the date/time has different timezone
     xml_output = fixture('feed.xml')
 
     get '/feed'
