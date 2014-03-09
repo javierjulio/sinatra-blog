@@ -17,6 +17,10 @@ class MiniTest::Unit::TestCase
 
   Blog::App.settings.root = FIXTURE_ROOT
 
+  Blog::App.set :url, 'http://blog.myblog.io/'
+  Blog::App.set :feed_title, 'My Blog Feed'
+  Blog::App.set :feed_url, '/feed'
+
   def self.test(name, &block)
     test_name = "test_#{name.gsub(/\s+/,'_')}".to_sym
     defined = instance_method(test_name) rescue false
