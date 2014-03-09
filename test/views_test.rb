@@ -30,8 +30,11 @@ class ViewsTest < MiniTest::Unit::TestCase
   end
 
   test 'feed' do
-    # TODO: when running test in Travis the date/time has different timezone
-    xml_output = fixture('feed.xml')
+    # when running test in Travis the date/time has different timezone so
+    # compile it dynamically rather than using a static XML file
+    @posts = Post.all
+    template = Tilt::BuilderTemplate.new(fixture_path('feed_sample.builder'))
+    xml_output = template.render(self)
 
     get '/feed'
 
