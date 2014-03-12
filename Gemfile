@@ -17,7 +17,7 @@ gem 'uglifier'
 gem 'closure-compiler'
 gem 'yui-compressor'
 gem 'coffee-script'
-gem 'sass'
+gem 'sass', '~> 3.2.15'
 gem 'sprockets-sass'
 gem 'sprockets-helpers'
 

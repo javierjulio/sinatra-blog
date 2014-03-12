@@ -25,7 +25,7 @@ GEM
     memcachier (0.0.2)
     minitest (4.7.5)
     multi_json (1.9.0)
-    newrelic_rpm (3.7.2.195)
+    newrelic_rpm (3.7.3.204)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
@@ -41,7 +41,7 @@ GEM
     raindrops (0.13.0)
     rake (10.1.1)
     redcarpet (3.1.1)
-    sass (3.2.14)
+    sass (3.2.15)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -66,7 +66,7 @@ GEM
     thread_safe (0.2.0)
       atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
-    tzinfo (0.3.38)
+    tzinfo (0.3.39)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -95,7 +95,7 @@ DEPENDENCIES
   rails_12factor
   rake
   redcarpet
-  sass
+  sass (~> 3.2.15)
   sinatra
   sinatra-contrib
   sprockets
