@@ -6,7 +6,7 @@ module Blog
       end
 
       get '/feed', provides: 'application/atom+xml' do
-        @posts = Post.all
+        @posts = Post.paginate(0, Blog::App.settings.items_in_feed)
         builder :feed
       end
 
