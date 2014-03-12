@@ -41,4 +41,18 @@ class ViewsTest < MiniTest::Unit::TestCase
     assert_equal last_response.body, xml_output
   end
 
+  test 'feed with custom number of items shown' do
+    original_items_in_feed = app.items_in_feed
+    app.items_in_feed = 1
+    @posts = Post.paginate(0, app.items_in_feed)
+    template = Tilt::BuilderTemplate.new(fixture_path('feed_sample.builder'))
+    xml_output = template.render(self)
+
+    get '/feed'
+
+    assert_equal last_response.body, xml_output
+
+    app.items_in_feed = original_items_in_feed
+  end
+
 end
