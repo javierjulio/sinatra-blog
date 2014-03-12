@@ -19,6 +19,7 @@ class MiniTest::Unit::TestCase
   Blog::App.set :url, 'http://blog.myblog.io/'
   Blog::App.set :feed_title, 'My Blog Feed'
   Blog::App.set :feed_url, '/feed'
+  Blog::App.set :items_in_feed, 25
 
   def self.test(name, &block)
     test_name = "test_#{name.gsub(/\s+/,'_')}".to_sym
