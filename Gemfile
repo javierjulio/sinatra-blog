@@ -20,6 +20,7 @@ gem 'coffee-script'
 gem 'sass', '~> 3.2.15'
 gem 'sprockets-sass'
 gem 'sprockets-helpers'
+gem 'coveralls', require: false
 
 group :test do
   gem 'minitest'
