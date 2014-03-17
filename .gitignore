@@ -6,3 +6,4 @@ tmp/gems.json
 keys
 .sass-cache/*
 public/assets/*
+/coverage/
