@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/javierjulio/sinatra-blog.png?branch=master)](https://travis-ci.org/javierjulio/sinatra-blog)
+[![Build Status](https://travis-ci.org/javierjulio/sinatra-blog.png?branch=master)](https://travis-ci.org/javierjulio/sinatra-blog) [![Coverage Status](https://coveralls.io/repos/javierjulio/sinatra-blog/badge.png?branch=master)](https://coveralls.io/r/javierjulio/sinatra-blog?branch=master)
 
 ## Sinatra Example Blog
 
