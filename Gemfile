@@ -17,7 +17,7 @@ gem 'uglifier'
 gem 'closure-compiler'
 gem 'yui-compressor'
 gem 'coffee-script'
-gem 'sass'
+gem 'sass', '~> 3.2.0'
 gem 'sprockets-sass'
 gem 'sprockets-helpers'
 gem 'coveralls', require: false
