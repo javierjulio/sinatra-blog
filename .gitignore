@@ -4,6 +4,6 @@ tmp
 mails
 tmp/gems.json
 keys
-.sass-cache/*
+.sass-cache/
 public/assets/*
 /coverage/
