@@ -1,7 +1,7 @@
 # https://gist.github.com/jphenow/5694169
 # https://gist.github.com/njvitto/362873
 namespace :deploy do
-  PRODUCTION_APP = 'myfdb-production'
+  PRODUCTION_APP = ''
 
   task :set_production_app do
     raise "Production app variable not set!" if PRODUCTION_APP.blank?
