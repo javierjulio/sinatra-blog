@@ -8,7 +8,7 @@ namespace :deploy do
     APP = PRODUCTION_APP
   end
 
-  desc "Deploy to production with migrations"
+  desc "Deploy to production"
   task :production => %W[deploy:set_production_app deploy:off deploy:push deploy:restart deploy:on deploy:tag]
 
   desc "Rollback production previous release"
