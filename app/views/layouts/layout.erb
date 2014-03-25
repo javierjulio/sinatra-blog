@@ -24,21 +24,19 @@
   <%== yield_content :head %>
 </head>
 <body>
-  <header class="header">
-    <nav class="wrap">
-      <h1 class="logo">
-        <a class="blog" href="/">blog</a>
-      </h1>
-    </nav>
+  <header class="app-header container">
+    <h1 class="logo">
+      <a class="blog" href="/">blog</a>
+    </h1>
   </header>
 
   <main role="main">
-    <div class="main wrap">
+    <div class="container">
       <%== yield %>
     </div>
   </main>
 
-  <footer class="footer">
+  <footer class="app-footer">
     <%== yield_content :footer %>
   </footer>
 
