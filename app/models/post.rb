@@ -14,9 +14,8 @@ module Blog
         posts.sort_by {|p| p.date || Date.current }.reverse
       end
 
-      def self.paginate(number = 0, limit = 10)
-        page = number * limit
-        all[page..(page + limit)] || []
+      def self.paginate(page = 1, limit = 10)
+        all[((page - 1) * limit)...(page * limit)] || []
       end
 
       def self.[](slug)

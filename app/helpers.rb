@@ -15,17 +15,17 @@ module Blog
     end
 
     def paginate_next_url
-      number = Integer(params[:number] || 0)
+      number = params[:page].to_i
       "/page/#{number + 1}"
     end
 
     def paginate_previous_url
-      number = Integer(params[:number] || 0)
+      number = params[:page].to_i
       "/page/#{number - 1}"
     end
 
     def paginate_previous?
-      params[:number].to_i > 0
+      params[:page].to_i > 0
     end
 
     def paginate_next?(items, limit = 10)
