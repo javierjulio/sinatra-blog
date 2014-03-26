@@ -39,6 +39,7 @@ GEM
       rack
     rack-ssl (1.4.0)
       rack
+    rack-standards (0.0.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails_12factor (0.0.2)
@@ -75,6 +76,8 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sprockets-helpers (1.1.0)
       sprockets (~> 2.0)
+    sprockets-memcache-store (0.0.1)
+      dalli
     sprockets-sass (1.0.3)
       sprockets (~> 2.0)
       tilt (~> 1.1)
@@ -111,6 +114,7 @@ DEPENDENCIES
   minitest
   newrelic_rpm
   rack-ssl
+  rack-standards
   rack-test
   rails_12factor
   rake
@@ -120,6 +124,7 @@ DEPENDENCIES
   sinatra-contrib
   sprockets
   sprockets-helpers
+  sprockets-memcache-store
   sprockets-sass
   uglifier
   unicorn
