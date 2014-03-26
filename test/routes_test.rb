@@ -22,12 +22,12 @@ class RoutesTest < MiniTest::Unit::TestCase
     assert last_response.not_found?
   end
 
-  test '/page/:number' do
+  test '/page/:page' do
     get '/page/1'
     assert last_response.ok?
   end
 
-  test 'invalid /page/:number returns not found status' do
+  test 'invalid /page/:page returns not found status' do
     get '/page/test'
     assert last_response.not_found?
   end

@@ -57,19 +57,19 @@ class PaginationHelpersTest < MiniTest::Unit::TestCase
   end
 
   test 'paginate_next_url with param increments page number by 1' do
-    @helper.stub :params, {number: 2} do
+    @helper.stub :params, {page: 2} do
       assert_equal @helper.paginate_next_url, '/page/3'
     end
   end
 
-  test 'paginate_previous_url default is page -1' do
+  test 'paginate_previous_url with no param returns -1' do
     @helper.stub :params, {} do
       assert_equal @helper.paginate_previous_url, '/page/-1'
     end
   end
 
   test 'paginate_previous_url with param decrements page number by 1' do
-    @helper.stub :params, {number: 3} do
+    @helper.stub :params, {page: 3} do
       assert_equal @helper.paginate_previous_url, '/page/2'
     end
   end
@@ -88,13 +88,13 @@ class PaginationHelpersTest < MiniTest::Unit::TestCase
   end
 
   test 'paginate_previous? returns true' do
-    @helper.stub :params, {number: 1} do
+    @helper.stub :params, {page: 2} do
       assert @helper.paginate_previous?
     end
   end
 
   test 'paginate_previous? returns false' do
-    @helper.stub :params, {number: 0} do
+    @helper.stub :params, {page: 1} do
       assert !@helper.paginate_previous?
     end
 

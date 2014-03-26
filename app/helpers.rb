@@ -25,7 +25,7 @@ module Blog
     end
 
     def paginate_previous?
-      params[:page].to_i > 0
+      params[:page].to_i > 1
     end
 
     def paginate_next?(items, limit = 10)

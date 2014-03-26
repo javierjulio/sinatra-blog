@@ -1,7 +1,6 @@
 require './app'
 
 # TODO: new config items: site_title, site_description, items_in_index
-# TODO: test new paginate implementation
 # TODO: consider precompiling parsed md erb data into JSON for faster processing on server
 
 Blog::App.set :url, 'http://blog.myblog.io/'
