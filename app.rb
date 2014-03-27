@@ -3,7 +3,7 @@ require 'bundler'
 
 # Setup load paths
 Bundler.require
-$: << File.expand_path('../', __FILE__)
+$: << File.expand_path('../', __FILE__) # required for using autoload
 $: << File.expand_path('../lib', __FILE__)
 
 # Require base
@@ -25,6 +25,9 @@ require 'app/routes'
 module Blog
   class App < Sinatra::Application
     configure do
+      set :root, Dir.pwd
+      set :views, 'app/views'
+
       disable :method_override
       disable :static
     end
