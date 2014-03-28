@@ -2,7 +2,7 @@ module Blog
   module Helpers
     def title
       value = yield_content(:title)
-      value.blank? ? 'Blog' : value
+      value.blank? ? App.settings.title : value
     end
 
     def url
@@ -11,7 +11,7 @@ module Blog
 
     def description
       value = yield_content(:description)
-      value.blank? ? '' : (value + '...')
+      value.blank? ? App.settings.description : (value + '...')
     end
 
     def paginate_next_url

@@ -13,7 +13,7 @@ class HelpersTest < MiniTest::Unit::TestCase
   end
 
   test 'default title' do
-    assert_equal @helper.title, 'Blog'
+    assert_equal @helper.title, app.settings.title
   end
 
   test 'yielded title' do
@@ -24,7 +24,7 @@ class HelpersTest < MiniTest::Unit::TestCase
   end
 
   test 'default description' do
-    assert_equal @helper.description, ''
+    assert_equal @helper.description, app.settings.description
   end
 
   test 'yielded description' do

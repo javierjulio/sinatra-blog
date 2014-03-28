@@ -1,9 +1,10 @@
 require './app'
 
-# TODO: new config items: site_title, site_description, items_in_index
-# TODO: consider precompiling parsed md erb data into JSON for faster processing on server
 
+Blog::App.set :title, 'Javier Julio'
+Blog::App.set :description, 'Javier Julio'
 Blog::App.set :url, 'http://blog.myblog.io/'
+Blog::App.set :items_in_index, 1
 Blog::App.set :feed_title, 'My Blog Feed'
 Blog::App.set :feed_url, '/feed'
 Blog::App.set :items_in_feed, 25

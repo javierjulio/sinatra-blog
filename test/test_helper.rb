@@ -19,7 +19,10 @@ class MiniTest::Unit::TestCase
   FIXTURE_ROOT = File.expand_path(File.join(File.dirname(__FILE__), "fixtures"))
 
   Blog::App.set :root, FIXTURE_ROOT
+  Blog::App.set :title, 'Javier Julio'
+  Blog::App.set :description, 'This is my blog.'
   Blog::App.set :url, 'http://blog.myblog.io/'
+  Blog::App.set :items_in_index, 25
   Blog::App.set :feed_title, 'My Blog Feed'
   Blog::App.set :feed_url, '/feed'
   Blog::App.set :items_in_feed, 25
