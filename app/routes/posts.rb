@@ -6,13 +6,13 @@ module Blog
       end
 
       get '/feed', provides: 'application/atom+xml' do
-        @posts = Post.paginate(0, Blog::App.settings.items_in_feed)
+        @posts = Post.paginate(limit: Blog::App.settings.items_in_feed)
         builder :feed
       end
 
       get %r{/page/([\d]+)} do |page|
         params[:page] = page
-        @posts = Post.paginate(page.to_i)
+        @posts = Post.paginate(page: page.to_i, limit: App.settings.items_in_index)
         erb :index
       end
 
@@ -22,7 +22,7 @@ module Blog
       end
 
       get '/' do
-        @posts = Post.paginate
+        @posts = Post.paginate(limit: App.settings.items_in_index)
         erb :index
       end
     end

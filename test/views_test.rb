@@ -32,7 +32,7 @@ class ViewsTest < MiniTest::Unit::TestCase
   test 'feed' do
     # when running test in Travis the date/time has different timezone so
     # compile it dynamically rather than using a static XML file
-    @posts = Post.paginate(0, app.items_in_feed)
+    @posts = Post.paginate(limit: app.items_in_feed)
     template = Tilt::BuilderTemplate.new(fixture_path('feed_sample.builder'))
     xml_output = template.render(self)
 
@@ -44,7 +44,7 @@ class ViewsTest < MiniTest::Unit::TestCase
   test 'feed with custom number of items shown' do
     original_items_in_feed = app.items_in_feed
     app.items_in_feed = 1
-    @posts = Post.paginate(0, app.items_in_feed)
+    @posts = Post.paginate(limit: app.items_in_feed)
     template = Tilt::BuilderTemplate.new(fixture_path('feed_sample.builder'))
     xml_output = template.render(self)
 
