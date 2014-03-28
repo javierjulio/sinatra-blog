@@ -21,6 +21,7 @@ module Blog
 
     def paginate_previous_url
       number = params[:page].to_i
+      return if number == 0
       "/page/#{number - 1}"
     end
 
