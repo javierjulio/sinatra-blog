@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RoutesTest < MiniTest::Unit::TestCase
+class RoutesTest < Minitest::Test
 
   test 'index page' do
     get '/'

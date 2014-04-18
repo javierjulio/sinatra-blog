@@ -6,7 +6,7 @@ class TestHelper
   attr_accessor :request, :params
 end
 
-class HelpersTest < MiniTest::Unit::TestCase
+class HelpersTest < Minitest::Test
 
   def setup
     @helper = TestHelper.new
@@ -44,7 +44,7 @@ class HelpersTest < MiniTest::Unit::TestCase
 
 end
 
-class PaginationHelpersTest < MiniTest::Unit::TestCase
+class PaginationHelpersTest < Minitest::Test
 
   def setup
     @helper = TestHelper.new

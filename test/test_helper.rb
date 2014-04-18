@@ -12,7 +12,7 @@ require File.expand_path '../../app.rb', __FILE__
 require 'bundler'
 Bundler.require
 
-class MiniTest::Unit::TestCase
+class Minitest::Test
 
   include Rack::Test::Methods
 

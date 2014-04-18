@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ViewsTest < MiniTest::Unit::TestCase
+class ViewsTest < Minitest::Test
 
   test 'index lists recent posts' do
     get '/'

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FindersTest < MiniTest::Unit::TestCase
+class FindersTest < Minitest::Test
 
   test 'Post.path is posts directory path' do
     assert_equal Pathname(app.settings.root) + 'posts', Post.path
@@ -40,7 +40,7 @@ class FindersTest < MiniTest::Unit::TestCase
 
 end
 
-class AccessorsTest < MiniTest::Unit::TestCase
+class AccessorsTest < Minitest::Test
 
   def setup
     @post_file = fixture_path('posts/my_first_post.md')
@@ -102,7 +102,7 @@ class AccessorsTest < MiniTest::Unit::TestCase
 
 end
 
-class EmptyPostContentTest < MiniTest::Unit::TestCase
+class EmptyPostContentTest < Minitest::Test
 
   def setup
     @post_file = fixture_path('posts/an_empty_post.md')
