@@ -1,34 +1,40 @@
-<% content_for :title do %><%= @post.title %><% end %>
-<% content_for :description do %><%= @post.description %><% end %>
+<% content_for :title do %>
+  <%= @post.title %>
+<% end %>
+<% content_for :description do %>
+  <%= @post.description %>
+<% end %>
 
-<section class="post <%= @post.slug %>">
-  <header>
-    <% if @post.draft? %>
-      <h3 class="draft">
-        This is an unpublished draft &mdash; please keep the URL private.
-      </h3>
-    <% end %>
+<div class="post <%= @post.slug %>">
+  <article>
+    <header>
+      <% if @post.draft? %>
+        <p class="draft">
+          This is an unpublished draft &mdash; please keep the URL private.
+        </p>
+      <% end %>
 
-    <h2>
-      <a href="/<%= @post.slug %>"><%= @post.title %></a>
-    </h2>
+      <h1>
+        <a href="/<%= @post.slug %>"><%= @post.title %></a>
+      </h1>
 
-    <% if @post.date %>
-      <time datatime="<%= @post.date.to_s %>">
-        <a href="/<%= @post.slug %>">
-          <%= @post.date.to_s(:short_ordinal) %>
-        </a>
-      </time>
-    <% end %>
+      <% if @post.date %>
+        <time datatime="<%= @post.date.to_s %>">
+          <a href="/<%= @post.slug %>">
+            <%= @post.date.to_s(:short_ordinal) %>
+          </a>
+        </time>
+      <% end %>
 
-    <% if @post.author %>
-      <h3 class="author">
-        by <%= @post.author %>
-      </h3>
-    <% end %>
-  </header>
+      <% if @post.author %>
+        <p class="author">
+          by <%= @post.author %>
+        </p>
+      <% end %>
+    </header>
 
-  <div class="body">
-    <%== @post.render %>
-  </div>
-</section>
+    <div class="body">
+      <%== @post.render %>
+    </div>
+  </article>
+</div>

@@ -1,0 +1,112 @@
+@import "animate";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  background-color: #fff;
+  color: #444;
+  font: 19px/1.5em "Open Sans", "HelveticaNeue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #4b525b;
+  text-decoration: underline;
+}
+
+// Site specific
+
+.container {
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.app-header {
+  margin: 40px auto;
+
+  a {
+    text-decoration: none;
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+  }
+}
+
+.post {
+  margin: 0 0 80px 0;
+  padding: 0 0 80px 0;
+
+  header {
+    margin-bottom: 25px;
+
+    h1 {
+      font-size: 30px;
+      line-height: 35px;
+      margin: 0 0 6px 0;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .draft {
+      background-color: #fcf8e3;
+      color: #8a6d3b;
+      font-size: 22px;
+      font-style: italic;
+      padding: 10px;
+    }
+
+    .author, time {
+      color: #6A6A6A;
+      display: inline;
+      font-size: 15px;
+      margin: 0;
+
+      a {
+        color: #6A6A6A;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .body {
+    hr {
+      background-color: #e6e6e6;
+      border: 0;
+      height: 1px;
+      margin: 30px auto;
+      max-width: 350px;
+    }
+
+    p {
+      margin: 0 0 1em 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.app-footer {
+  border-bottom: 20px solid #3498DB;
+  margin-top: 40px;
+}
+
+@media only all and (min-width: 650px) {
+  .container {
+    max-width: 700px;
+    padding: 30px;
+  }
+}

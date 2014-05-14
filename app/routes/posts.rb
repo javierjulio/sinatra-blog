@@ -5,30 +5,25 @@ module Blog
         error 404
       end
 
-      get '/apple-touch-icon*' do
-        404
-      end
-
       get '/feed', provides: 'application/atom+xml' do
-        @posts = Post.all
+        @posts = Post.paginate(limit: Blog::App.settings.items_in_feed)
         builder :feed
       end
 
-      get '/page/:number' do
-        number = Integer(params[:number])
-        @posts = Post.paginate(number)
-
-        erb :index
+      get %r{/page/([\d]+)} do |page|
+        params[:page] = page
+        @posts = Post.paginate(page: page.to_i, limit: App.settings.items_in_index)
+        erb :index, layout: !pjax?
       end
 
       get '/:slug' do
         @post = Post.find!(params[:slug])
-        erb :post
+        erb :post, layout: !pjax?
       end
 
       get '/' do
-        @posts = Post.paginate
-        erb :index
+        @posts = Post.paginate(limit: App.settings.items_in_index)
+        erb :index, layout: !pjax?
       end
     end
   end

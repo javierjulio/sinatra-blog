@@ -2,7 +2,7 @@ module Blog
   module Helpers
     def title
       value = yield_content(:title)
-      value.blank? ? 'Blog' : value
+      value.blank? ? App.settings.title : value
     end
 
     def url
@@ -11,25 +11,30 @@ module Blog
 
     def description
       value = yield_content(:description)
-      value.blank? ? '' : (value + '...')
+      value.blank? ? App.settings.description : (value + '...')
     end
 
     def paginate_next_url
-      number = Integer(params[:number] || 0)
+      number = params[:page].to_i
       "/page/#{number + 1}"
     end
 
     def paginate_previous_url
-      number = Integer(params[:number] || 0)
+      number = params[:page].to_i
+      return if number == 0
       "/page/#{number - 1}"
     end
 
     def paginate_previous?
-      params[:number].to_i > 0
+      params[:page].to_i > 1
     end
 
     def paginate_next?(items, limit = 10)
-      items.length >= limit
+      Array(items).length >= limit
+    end
+
+    def pjax?
+      env['HTTP_X_PJAX']
     end
 
     ::Date::DATE_FORMATS[:short_ordinal] = lambda { |date|

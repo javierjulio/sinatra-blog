@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <title><%= title %></title>
 
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="<%= asset_path 'layout.css' %>">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="<%= asset_path 'application.css' %>">
 
-  <link rel="alternate" type="application/atom+xml" href="http://blog.io/feed" />
+  <link rel="alternate" type="application/atom+xml" href="/feed">
 
-  <meta name="referrer" content="always"/>
-  <meta name="description" content="Blog">
+  <meta name="referrer" content="always">
+  <meta name="author" content="Javier Julio">
+  <meta name="description" content="<%= description %>">
 
   <meta property="og:site_name" content="Blog" />
   <meta property="og:type" content="website" />
@@ -22,21 +23,24 @@
 
   <%== yield_content :head %>
 </head>
-<body>
-  <header class="header">
-    <nav class="wrap">
-      <h1 class="logo">
-        <a class="blog" href="/">blog</a>
-      </h1>
-    </nav>
+<body class="">
+  <header class="app-header container animated fadeIn">
+    <h1 class="logo">
+      <a class="blog" href="/">blog</a>
+    </h1>
   </header>
 
-  <article class="main wrap">
-    <%== yield %>
-  </article>
+  <main role="main">
+    <div class="container animated fadeInDown" id="js-pjax-container">
+      <%== yield %>
+    </div>
+  </main>
 
-  <footer class="footer">
+  <footer class="app-footer">
     <%== yield_content :footer %>
   </footer>
+
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+  <script src="<%= asset_path 'application.js' %>"></script>
 </body>
 </html>

@@ -14,9 +14,8 @@ module Blog
         posts.sort_by {|p| p.date || Date.current }.reverse
       end
 
-      def self.paginate(number = 0, limit = 10)
-        page = number * limit
-        all[page..(page + limit)] || []
+      def self.paginate(page: 1, limit: 10)
+        all[((page - 1) * limit)...(page * limit)] || []
       end
 
       def self.[](slug)
@@ -25,12 +24,20 @@ module Blog
         paths.first && self.new(paths.first)
       end
 
+      def self.find(slug)
+        self[slug]
+      end
+
       def self.find!(slug)
         self[slug] || raise(NotFound.new)
       end
 
       def self.cache
-        @dalli ||= Dalli::Client.new
+        if App.settings.production?
+          @cache ||= Dalli::Client.new
+        else
+          @cache ||= ActiveSupport::Cache::MemoryStore.new
+        end
       end
 
       attr_reader :path
@@ -51,14 +58,16 @@ module Blog
       def markdown
         @markdown ||= begin
           eruby = Erubis::EscapedEruby.new(content)
-          eruby.result(binding)
+          eruby.result(binding).strip
         end
       end
+
+      alias_method :setup, :markdown
 
       def html
         @html ||= begin
           renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-          renderer.render(markdown)
+          renderer.render(markdown).strip
         end
       end
 
@@ -86,29 +95,17 @@ module Blog
       end
 
       def draft?
-        @draft || parent_draft?
+        @draft
       end
 
-      def mtime
-        path.mtime
-      end
-
-      def key
-        [slug, mtime.to_i].join(':')
+      def cache_key
+        [slug, path.mtime.to_i].join(':')
       end
 
       def render
-        self.class.cache.fetch(key) do
+        self.class.cache.fetch(cache_key) do
           html
         end
-      end
-
-      alias_method :setup, :markdown
-
-      protected
-
-      def parent_draft?
-        path.parent.basename.to_s == 'drafts'
       end
     end
   end

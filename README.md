@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/javierjulio/sinatra-blog.png?branch=master)](https://travis-ci.org/javierjulio/sinatra-blog) [![Coverage Status](https://coveralls.io/repos/javierjulio/sinatra-blog/badge.png?branch=master)](https://coveralls.io/r/javierjulio/sinatra-blog?branch=master)
+
 ## Sinatra Example Blog
 
 This is a good example of structuring a Sinatra app.
@@ -12,22 +14,25 @@ Good examples of the following:
 * Sprockets and asset management
 * Markdown and Erb
 * Unicorn and Heroku
-* Stylus
+* Sass and CoffeeScript
+* Deploy task with auto tagging
 
-Demo here http://sinatra-example-blog.herokuapp.com
+## Installation
 
-## Running
-
-    bundle install
-    thin start
-
-## Heroku 123
-
-    git clone git@github.com:maccman/sinatra-blog.git
+    git clone https://github.com/javierjulio/sinatra-blog.git
     cd sinatra-blog
+    bundle install
+    foreman start
+
+### Tests
+
+    bundle exec rake test
+
+### Deploy to Heroku
 
     heroku create myblog
     heroku labs:enable user-env-compile
     heroku addons:add memcachier:dev
+    heroku addons:add newrelic:stark
 
-    git push heroku master
+    bundle exec rake deploy:production
