@@ -23,15 +23,15 @@
 
   <%== yield_content :head %>
 </head>
-<body>
-  <header class="app-header container">
+<body class="">
+  <header class="app-header container animated fadeIn">
     <h1 class="logo">
       <a class="blog" href="/">blog</a>
     </h1>
   </header>
 
   <main role="main">
-    <div class="container">
+    <div class="container animated fadeInDown" id="js-pjax-container">
       <%== yield %>
     </div>
   </main>
@@ -40,6 +40,7 @@
     <%== yield_content :footer %>
   </footer>
 
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
   <script src="<%= asset_path 'application.js' %>"></script>
 </body>
 </html>
