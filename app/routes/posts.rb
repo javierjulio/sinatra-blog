@@ -13,17 +13,17 @@ module Blog
       get %r{/page/([\d]+)} do |page|
         params[:page] = page
         @posts = Post.paginate(page: page.to_i, limit: App.settings.items_in_index)
-        erb :index
+        erb :index, layout: !pjax?
       end
 
       get '/:slug' do
         @post = Post.find!(params[:slug])
-        erb :post
+        erb :post, layout: !pjax?
       end
 
       get '/' do
         @posts = Post.paginate(limit: App.settings.items_in_index)
-        erb :index
+        erb :index, layout: !pjax?
       end
     end
   end
